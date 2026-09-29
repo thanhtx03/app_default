@@ -1,11 +1,10 @@
 import 'dart:developer' as developer;
-import 'package:app_default/app/config/app_colors.dart';
-import 'package:app_default/app/routes/app_routes.dart';
+import 'package:app_default/features/no_internet_screen.dart';
+import 'package:app_default/features/welcome_back_screen.dart';
 import 'package:exo_ads/exo_ads.dart';
 import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:firebase_remote_config/firebase_remote_config.dart';
 import 'package:flutter/foundation.dart';
-import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 /// Service wrapper for ExoAds initialization and lifecycle hooks.
@@ -120,45 +119,9 @@ class AdsService {
   /// Initialize ExoAds, fetch remote config, and register ads.
   Future<void> initialize() async {
 
-    // Setup UI for Welcome Back Screen
-
-    ExoAds.instance.welcomeBackLogo = Image.asset(
-      'assets/images/icon_app.png',
-      width: 50,
-      height: 50,
-    );
-    ExoAds.instance.welcomeBackCenterImage = Image.asset(
-      'assets/images/img_welcome_back.png',
-      width: 335,
-      height: 335,
-    );
-    //ExoAds.instance.welcomeBackBackgroundColor = SStartupColors.background;
-    ExoAds.instance.welcomeBackAppName = () => 'app_default';
-    ExoAds.instance.welcomeBackText = () => 'Welcome to our app'.tr;
-    ExoAds.instance.welcomeBackNextButtonText = () => 'Continue'.tr;
-    ExoAds.instance.welcomeBackButtonColor = AppColors.primaryTransparent;
-    ExoAds.instance.welcomeBackButtonTextColor = AppColors.primary;
-    ExoAds.instance.welcomeBackButtonMargin = const EdgeInsets.symmetric(horizontal: 48);
-    ExoAds.instance.welcomeBackButtonPadding = const EdgeInsets.symmetric(vertical: 12, horizontal: 16);
-
-    // Setup UI for No Internet Screen
-    ExoAds.instance.noInternetIllustration = Image.asset(
-      'assets/images/img_no_internet.png',
-      width: 268,
-      height: 268,
-    );
-    ExoAds.instance.noInternetBackgroundColor = AppColors.background;
-    ExoAds.instance.noInternetTitle = () => 'No Internet'.tr;
-    ExoAds.instance.noInternetSubtitle = () => 'No internet connection'.tr;
-    ExoAds.instance.noInternetDescription = () => 'No internet connection available due \nto network or service issue'.tr;
-    ExoAds.instance.noInternetRetryLabel = () => 'Try Again'.tr;
-    ExoAds.instance.noInternetButtonColor = AppColors.primary;
-    ExoAds.instance.noInternetButtonTextColor = AppColors.textPrimary;
-    ExoAds.instance.noInternetButtonMargin = const EdgeInsets.symmetric(horizontal: 48);
-    ExoAds.instance.noInternetButtonPadding = const EdgeInsets.symmetric(vertical: 12, horizontal: 16);
-    ExoAds.instance.onRestartToSplash = () {
-      Get.offAllNamed(AppRoutes.splash);
-    };
+    // Setup UI for Welcome Back & No Internet Screens
+    WelcomeBackScreen.setupStyle();
+    NoInternetScreen.setupStyle();
     
     listenToAdEvents();
 
