@@ -1,11 +1,17 @@
+import 'package:app_default/app/services/ads_service.dart';
+import 'package:app_default/core/bindings/initial_binding.dart';
+import 'package:exo_ads/exo_ads_noads.dart';
 import 'package:flutter/material.dart';
 
-void main() {
-
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  // Khởi tạo Firebase và các services khác
+  await InitialBinding().initializeServices();
+ // Khởi tạo Ads Service
+  await AdsService.instance.initialize();
 
+  ExoAds.instance.registerAdsFromRemoteConfig();
 
-  
   runApp(const MyApp());
 }
 
