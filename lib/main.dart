@@ -1,7 +1,7 @@
 import 'package:app_default/app/routes/app_routes.dart';
 import 'package:app_default/app/services/ads_service.dart';
 import 'package:app_default/core/bindings/initial_binding.dart';
-import 'package:exo_ads/exo_ads_noads.dart';
+import 'package:exo_ads/exo_ads.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -28,7 +28,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
-      initialRoute: AppRoutes.home,
+      initialRoute: AppRoutes.splash,
       routes: appRoutes,
     );
   }

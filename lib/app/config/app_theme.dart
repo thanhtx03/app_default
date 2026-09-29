@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:app_default/app/config/app_colors.dart';
 
 /// Theme builder for s_startup screens
-class SStartupTheme {
-  SStartupTheme._();
+class AppTheme {
+  AppTheme._();
 
   /// Build standard ExoScreenTheme for ExoSplashView, ExoLanguageView, ExoOnboardingView
   static ExoScreenTheme exoTheme({
