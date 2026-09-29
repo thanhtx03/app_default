@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "771884000767",
+    "project_id": "knn-brightstory-watchmovie-tv",
+    "storage_bucket": "knn-brightstory-watchmovie-tv.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:771884000767:android:e8ce5fb35a4db5ec19b3ca",
+        "android_client_info": {
+          "package_name": "com.brightstory.watchmovie.tv"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDPuY70kYyVKWXwcmCXGjaqKVIx7MtaJgU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

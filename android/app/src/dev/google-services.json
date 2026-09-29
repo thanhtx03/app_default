@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "966464348362",
+    "project_id": "watch-movies-tv-res",
+    "storage_bucket": "watch-movies-tv-res.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:966464348362:android:0833f6c5ad2258f3411433",
+        "android_client_info": {
+          "package_name": "com.exor.watch.movie.dev"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBMHD1OcJA-qp2IhY4Sv1YyEPSReWSKqS4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
