@@ -28,6 +28,9 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
+      navigatorObservers: [
+        ExoRouteObserver(),
+      ],
       initialRoute: AppRoutes.splash,
       routes: appRoutes,
     );

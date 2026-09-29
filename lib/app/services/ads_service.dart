@@ -123,12 +123,12 @@ class AdsService {
     // Setup UI for Welcome Back Screen
 
     ExoAds.instance.welcomeBackLogo = Image.asset(
-      'assets/icons/ic_app.png',
+      'assets/images/icon_app.png',
       width: 50,
       height: 50,
     );
     ExoAds.instance.welcomeBackCenterImage = Image.asset(
-      'assets/a_startup/images/img_welcome_back.png',
+      'assets/images/img_welcome_back.png',
       width: 335,
       height: 335,
     );
@@ -143,7 +143,7 @@ class AdsService {
 
     // Setup UI for No Internet Screen
     ExoAds.instance.noInternetIllustration = Image.asset(
-      'assets/a_startup/images/img_no_internet.png',
+      'assets/images/img_no_internet.png',
       width: 268,
       height: 268,
     );
@@ -176,9 +176,10 @@ class AdsService {
     );
 
     await ExoAds.instance.fetchRemoteConfig();
-    ExoAds.instance.registerAdsFromRemoteConfig();
+    await ExoAds.instance.registerAdsFromRemoteConfig();
 
     _initialized = true;
-    debugPrint('[AdsService] ExoAds initialized.');
+    debugPrint('[AdsService] ExoAds initialized. adsEnabled: ${ExoAds.instance.adsEnabled}');
+    debugPrint('[AdsService] Registered ad keys: ${ExoAds.instance.definitions.keys.toList()}');
   }
 }
