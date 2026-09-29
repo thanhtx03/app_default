@@ -171,8 +171,8 @@ class AdsService {
     await ExoAds.instance.initialize(
       remoteConfig: FirebaseRemoteConfig.instance,
       analytics: FirebaseAnalytics.instance,
-      adjustToken: 'vna2du8j320w',
-      adjustEventKey: 'g67998',
+      adjustToken: '',
+      adjustEventKey: '',
       isDevMode: kDebugMode,
     );
 
