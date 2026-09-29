@@ -157,9 +157,9 @@ class AdsService {
     ExoAds.instance.noInternetButtonTextColor = AppColors.textPrimary;
     ExoAds.instance.noInternetButtonMargin = const EdgeInsets.symmetric(horizontal: 48);
     ExoAds.instance.noInternetButtonPadding = const EdgeInsets.symmetric(vertical: 12, horizontal: 16);
-    ExoAds.instance.onRestartToSplash = () {
-    //Get.offAllNamed(AppRoutes.splash);
-    };
+/*     ExoAds.instance.onRestartToSplash = () {
+    Get.offAllNamed(AppRoutes.splash);
+    }; */
     
     listenToAdEvents();
 
