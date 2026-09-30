@@ -1,3 +1,4 @@
+import 'package:app_default/app/config/app_colors.dart';
 import 'package:app_default/app/config/app_theme.dart';
 import 'package:app_default/app/routes/app_routes.dart';
 import 'package:exo_ads/exo_ads.dart';
@@ -15,7 +16,11 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
   @override
   Widget build(BuildContext context) {
     return ExoOnboardingView(
-      theme: AppTheme.exoTheme(),
+      actionTextColor: AppColors.primary,
+      theme: AppTheme.exoTheme(
+        primaryColor: AppColors.primary,
+        buttonColor: AppColors.primary,
+      ),
       pages: [
         ExoOnboardingPage(
           title: 'Title1'.tr,

@@ -1,4 +1,5 @@
-import 'dart:developer' as developer;
+import 'package:app_default/app/config/app_colors.dart';
+import 'package:app_default/app/services/ads_logger.dart';
 import 'package:app_default/features/no_internet/no_internet_screen.dart';
 import 'package:app_default/features/welcome_back/welcome_back_screen.dart';
 import 'package:exo_ads/exo_ads.dart';
@@ -14,115 +15,17 @@ class AdsService {
   static final AdsService instance = AdsService._();
 
   bool _initialized = false;
-  bool _isListening = false;
 
-  DateTime? _lastInterShowTime;
-  final DateTime _appStartTime = DateTime.now();
-
-  bool _isInterAd(AdEvent event) {
-    return event.adUnitType == AdUnitType.interstitial ||
-        event.adUnitType == AdUnitType.rewardedInterstitial ||
-        event.adUnitType == AdUnitType.nativeFull ||
-        event.adKey.contains('inter') ||
-        event.adKey.contains('ad_in_');
-  }
-
-  void _logInterIntervalIfNeeded(AdEvent event) {
-    if (!_isInterAd(event)) return;
-
-    final interConfig = ExoAds.instance.config.interConfig;
-    final betweenSec = interConfig.betweenInterval;
-    final startSec = interConfig.startInterval;
-    final now = DateTime.now();
-    final uptimeSec = now.difference(_appStartTime).inMilliseconds / 1000.0;
-
-    String intervalStatus;
-    if (_lastInterShowTime == null) {
-      intervalStatus = 'First Inter Ad | App Uptime: ${uptimeSec.toStringAsFixed(1)}s';
-    } else {
-      final elapsedSec = now.difference(_lastInterShowTime!).inMilliseconds / 1000.0;
-      if (elapsedSec < betweenSec) {
-        final remaining = (betweenSec - elapsedSec).clamp(0.0, betweenSec.toDouble());
-        intervalStatus = 'Last Inter: ${elapsedSec.toStringAsFixed(1)}s ago | Cooldown remaining: ${remaining.toStringAsFixed(1)}s ⏳';
-      } else {
-        intervalStatus = 'Last Inter: ${elapsedSec.toStringAsFixed(1)}s ago | Interval Passed Ready ✅';
-      }
-    }
-
-    _logToLogcat(
-      '⏱️ [INTER INTERVAL] Ad: "${event.adKey}" | Config (between_itval: ${betweenSec}s, start_itval: ${startSec}s) | $intervalStatus',
-    );
-  }
-
-  /// Lắng nghe các sự kiện của ExoAds và in log tên Ads (adKey) ra Logcat
-  void listenToAdEvents() {
-    if (_isListening) return;
-    _isListening = true;
-
-    ExoAds.instance.onEvent.listen((event) {
-      final adName = event.adKey;
-      final type = event.adUnitType.name;
-      final network = event.adNetwork.name;
-
-      switch (event.type) {
-        case AdEventType.showed:
-          _logToLogcat(
-            '📺 [ADS SHOWING] Ad Name/Key: "$adName" | Type: $type | Network: $network',
-          );
-          _logInterIntervalIfNeeded(event);
-          if (_isInterAd(event)) {
-            _lastInterShowTime = DateTime.now();
-          }
-          break;
-        case AdEventType.impression:
-          _logToLogcat(
-            '👁️ [ADS IMPRESSION] Ad Name/Key: "$adName" | Type: $type | Network: $network',
-          );
-          break;
-        case AdEventType.loaded:
-          _logToLogcat(
-            '✅ [ADS LOADED] Ad Name/Key: "$adName" | Type: $type | Network: $network',
-          );
-          break;
-        case AdEventType.failedToShow:
-          _logToLogcat(
-            '❌ [ADS FAILED TO SHOW] Ad Name/Key: "$adName" | Error: ${event.errorMessage}',
-          );
-          _logInterIntervalIfNeeded(event);
-          break;
-        case AdEventType.failedToLoad:
-          _logToLogcat(
-            '⚠️ [ADS FAILED TO LOAD] Ad Name/Key: "$adName" | Error: ${event.errorMessage}',
-          );
-          break;
-        case AdEventType.clicked:
-          _logToLogcat(
-            '👉 [ADS CLICKED] Ad Name/Key: "$adName" | Type: $type',
-          );
-          break;
-        case AdEventType.dismissed:
-          _logToLogcat(
-            '🚪 [ADS DISMISSED] Ad Name/Key: "$adName" | Type: $type',
-          );
-          break;
-        default:
-          break;
-      }
-    });
-  }
-
-  void _logToLogcat(String message) {
-    debugPrint(message);
-    developer.log(message, name: 'ExoAdsLogcat');
-  }
+  /// Lắng nghe các sự kiện của ExoAds (ủy quyền sang AdsLogger)
+  void listenToAdEvents() => AdsLogger.instance.listenToAdEvents();
 
   /// Initialize ExoAds, fetch remote config, and register ads.
   Future<void> initialize() async {
-
+    ExoAds.instance.nativeAdBackgroundColor = AppColors.black;
     // Setup UI for Welcome Back & No Internet Screens
     WelcomeBackScreen.setupStyle();
     NoInternetScreen.setupStyle();
-    
+
     listenToAdEvents();
 
     if (_initialized) return;
@@ -142,7 +45,11 @@ class AdsService {
     await ExoAds.instance.registerAdsFromRemoteConfig();
 
     _initialized = true;
-    debugPrint('[AdsService] ExoAds initialized. adsEnabled: ${ExoAds.instance.adsEnabled}');
-    debugPrint('[AdsService] Registered ad keys: ${ExoAds.instance.definitions.keys.toList()}');
+    AdsLogger.instance.logToLogcat(
+      '[AdsService] ExoAds initialized. adsEnabled: ${ExoAds.instance.adsEnabled}',
+    );
+    AdsLogger.instance.logToLogcat(
+      '[AdsService] Registered ad keys: ${ExoAds.instance.definitions.keys.toList()}',
+    );
   }
 }
