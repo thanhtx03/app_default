@@ -23,8 +23,8 @@ class WelcomeBackScreen {
     ExoAds.instance.welcomeBackTitle = () => 'Welcome to our app'.tr;
     ExoAds.instance.welcomeBackText = () => 'Welcome to our app'.tr;
     ExoAds.instance.welcomeBackNextButtonText = () => 'Continue'.tr;
-    ExoAds.instance.welcomeBackButtonColor = AppColors.primaryTransparent;
-    ExoAds.instance.welcomeBackButtonTextColor = AppColors.primary;
+    ExoAds.instance.welcomeBackButtonColor = AppColors.primaryAdsButtonBackground;
+    ExoAds.instance.welcomeBackButtonTextColor = AppColors.primaryAdsButtonText;
     ExoAds.instance.welcomeBackButtonMargin =
         const EdgeInsets.symmetric(horizontal: 48);
     ExoAds.instance.welcomeBackButtonPadding =

@@ -10,15 +10,12 @@ const Map<String, String> de = {
   TranslationKeys.tryAgain: 'Erneut versuchen',
   TranslationKeys.welcomeToOurApp: 'Willkommen in unserer App',
   TranslationKeys.continueText: 'Fortfahren',
-  TranslationKeys.title1: 'Neue Funktionen entdecken',
-  TranslationKeys.description1:
-      'Entdecken Sie alle leistungsstarken Funktionen unserer App',
-  TranslationKeys.title2: 'Schnell & Sicher',
-  TranslationKeys.description2:
-      'Ihre Erfahrung ist immer reibungslos und geschützt',
-  TranslationKeys.title3: 'Loslegen',
-  TranslationKeys.description3:
-      'Schließen Sie sich uns heute an und genießen Sie das beste Erlebnis',
+  TranslationKeys.title1: 'Title1',
+  TranslationKeys.description1: 'Description1',
+  TranslationKeys.title2: 'Title2',
+  TranslationKeys.description2: 'Description2',
+  TranslationKeys.title3: 'Title3',
+  TranslationKeys.description3: 'Description3',
   TranslationKeys.next: 'Weiter',
   'NEXT': 'WEITER',
   'next': 'Weiter',

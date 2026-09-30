@@ -20,8 +20,8 @@ class NoInternetScreen {
     ExoAds.instance.noInternetDescription = () =>
         'No internet connection available due \nto network or service issue'.tr;
     ExoAds.instance.noInternetRetryLabel = () => 'Try Again'.tr;
-    ExoAds.instance.noInternetButtonColor = AppColors.primary;
-    ExoAds.instance.noInternetButtonTextColor = AppColors.textPrimary;
+    ExoAds.instance.noInternetButtonColor = AppColors.primaryAdsButton;
+    ExoAds.instance.noInternetButtonTextColor = AppColors.textPrimaryAds;
     ExoAds.instance.noInternetButtonMargin =
         const EdgeInsets.symmetric(horizontal: 48);
     ExoAds.instance.noInternetButtonPadding =

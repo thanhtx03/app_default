@@ -6,9 +6,11 @@ class AppColors {
   AppColors._();
   
   // Ads Colors
+  static const Color textPrimaryAds = Color(0xFFFFFFFF);
   static const Color primaryAdsButton = Color(0xFF00BFFF); 
   static const Color primaryAdsButtonText = Color(0xFF00BFFF); 
-  static const Color primaryAdsButtonBackground = Color(0xFF00BFFF); 
+  static const Color primaryAdsButtonBackground = Color(0xFF000000);
+  static const Color backgroundAds = Color(0xFF050505);  
 
   // Primary Colors (Neon Blue - Cyberpunk & Immersive from reskin-movie_tv_show)
   static const Color primary = Color(0xFF00BFFF); // Neon Blue

@@ -10,15 +10,12 @@ const Map<String, String> hi = {
   TranslationKeys.tryAgain: 'पुनः प्रयास करें',
   TranslationKeys.welcomeToOurApp: 'हमारे ऐप में आपका स्वागत है',
   TranslationKeys.continueText: 'जारी रखें',
-  TranslationKeys.title1: 'नई सुविधाएं देखें',
-  TranslationKeys.description1:
-      'हमारे ऐप की सभी बेहतरीन सुविधाओं का अनुभव करें',
-  TranslationKeys.title2: 'तेज़ और सुरक्षित',
-  TranslationKeys.description2:
-      'आपका अनुभव हमेशा सहज और सुरक्षित रहता है',
-  TranslationKeys.title3: 'शुरू करें',
-  TranslationKeys.description3:
-      'आज ही शामिल हों और बेहतरीन अनुभव का आनंद लें',
+  TranslationKeys.title1: 'Title1',
+  TranslationKeys.description1: 'Description1',
+  TranslationKeys.title2: 'Title2',
+  TranslationKeys.description2: 'Description2',
+  TranslationKeys.title3: 'Title3',
+  TranslationKeys.description3: 'Description3',
   TranslationKeys.next: 'आगे',
   'NEXT': 'आगे',
   'next': 'आगे',
