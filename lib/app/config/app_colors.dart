@@ -4,6 +4,11 @@ import 'package:flutter/material.dart';
 /// Extracted from reskin-movie_tv_show theme
 class AppColors {
   AppColors._();
+  
+  // Ads Colors
+  static const Color primaryAdsButton = Color(0xFF00BFFF); 
+  static const Color primaryAdsButtonText = Color(0xFF00BFFF); 
+  static const Color primaryAdsButtonBackground = Color(0xFF00BFFF); 
 
   // Primary Colors (Neon Blue - Cyberpunk & Immersive from reskin-movie_tv_show)
   static const Color primary = Color(0xFF00BFFF); // Neon Blue
