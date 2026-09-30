@@ -1,5 +1,4 @@
 abstract class TranslationKeys {
-  static const appName = 'app_name';
   static const hello = 'Hello';
   static const noInternet = 'No Internet';
   static const noInternetConnection = 'No internet connection';

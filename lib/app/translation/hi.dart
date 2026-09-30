@@ -1,7 +1,6 @@
 import 'package:app_default/app/translation/translation_keys.dart';
 
 const Map<String, String> hi = {
-  TranslationKeys.appName: 'फ्लटर ऐप',
   TranslationKeys.hello: 'नमस्ते',
   TranslationKeys.noInternet: 'इंटरनेट नहीं है',
   TranslationKeys.noInternetConnection: 'कोई इंटरनेट कनेक्शन नहीं',

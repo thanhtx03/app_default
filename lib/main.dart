@@ -1,3 +1,4 @@
+import 'package:app_default/app/config/app_constants.dart';
 import 'package:app_default/app/routes/app_routes.dart';
 import 'package:app_default/app/services/ads_service.dart';
 import 'package:app_default/app/bindings/initial_binding.dart';
@@ -25,7 +26,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      title: 'Flutter Demo',
+      title: AppConstants.appName,
       translations: AppTranslations(),
       locale: const Locale('en', 'US'),
       fallbackLocale: AppTranslations.fallbackLocale,

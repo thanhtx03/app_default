@@ -1,7 +1,6 @@
 import 'package:app_default/app/translation/translation_keys.dart';
 
 const Map<String, String> es = {
-  TranslationKeys.appName: 'Aplicación Flutter',
   TranslationKeys.hello: 'Hola',
   TranslationKeys.noInternet: 'Sin Internet',
   TranslationKeys.noInternetConnection: 'Sin conexión a Internet',

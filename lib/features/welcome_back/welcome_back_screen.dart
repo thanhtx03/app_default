@@ -1,4 +1,5 @@
 import 'package:app_default/app/config/app_colors.dart';
+import 'package:app_default/app/config/app_constants.dart';
 import 'package:exo_ads/exo_ads.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -19,7 +20,7 @@ class WelcomeBackScreen {
       height: 335,
     );
     // ExoAds.instance.welcomeBackBackgroundColor = AppColors.background;
-    ExoAds.instance.welcomeBackAppName = () => 'app_default';
+    ExoAds.instance.welcomeBackAppName = () => AppConstants.appName;
     ExoAds.instance.welcomeBackTitle = () => 'Welcome to our app'.tr;
     ExoAds.instance.welcomeBackText = () => 'Welcome to our app'.tr;
     ExoAds.instance.welcomeBackNextButtonText = () => 'Continue'.tr;
