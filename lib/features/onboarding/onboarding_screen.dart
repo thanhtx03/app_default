@@ -16,26 +16,25 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
   Widget build(BuildContext context) {
     return ExoOnboardingView(
       theme: AppTheme.exoTheme(),
-      pages: const [
+      pages: [
         ExoOnboardingPage(
-          title: 'Title1',
-          description:
-              'Description1',
-          image: AssetImage('assets/images/onboarding_1.png'),
+          title: 'Title1'.tr,
+          description: 'Description1'.tr,
+          image: const AssetImage('assets/images/onboarding_1.png'),
         ),
         ExoOnboardingPage(
-          title: 'Title2',
-          description:
-              'Description2',
-          image: AssetImage('assets/images/onboarding_2.png'),
+          title: 'Title2'.tr,
+          description: 'Description2'.tr,
+          image: const AssetImage('assets/images/onboarding_2.png'),
         ),
         ExoOnboardingPage(
-          title: 'Title3',
-          description:
-              'Description3',
-          image: AssetImage('assets/images/onboarding_3.png'),
+          title: 'Title3'.tr,
+          description: 'Description3'.tr,
+          image: const AssetImage('assets/images/onboarding_3.png'),
         ),
       ],
+      nextText: 'NEXT'.tr,
+      getStartedText: 'GET STARTED'.tr,
       onFinish: () => Get.offNamed(AppRoutes.home),
     );
   }

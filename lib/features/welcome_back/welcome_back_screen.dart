@@ -20,6 +20,7 @@ class WelcomeBackScreen {
     );
     // ExoAds.instance.welcomeBackBackgroundColor = AppColors.background;
     ExoAds.instance.welcomeBackAppName = () => 'app_default';
+    ExoAds.instance.welcomeBackTitle = () => 'Welcome to our app'.tr;
     ExoAds.instance.welcomeBackText = () => 'Welcome to our app'.tr;
     ExoAds.instance.welcomeBackNextButtonText = () => 'Continue'.tr;
     ExoAds.instance.welcomeBackButtonColor = AppColors.primaryTransparent;

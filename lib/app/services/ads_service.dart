@@ -1,6 +1,6 @@
 import 'dart:developer' as developer;
-import 'package:app_default/features/no_internet_screen.dart';
-import 'package:app_default/features/welcome_back_screen.dart';
+import 'package:app_default/features/no_internet/no_internet_screen.dart';
+import 'package:app_default/features/welcome_back/welcome_back_screen.dart';
 import 'package:exo_ads/exo_ads.dart';
 import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:firebase_remote_config/firebase_remote_config.dart';

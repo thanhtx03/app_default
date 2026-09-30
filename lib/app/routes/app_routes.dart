@@ -1,7 +1,7 @@
 import 'package:app_default/views/home_screen.dart';
-import 'package:app_default/features/language_screen.dart';
-import 'package:app_default/features/onboarding_screen.dart';
-import 'package:app_default/features/splash_screen.dart';
+import 'package:app_default/features/language/language_screen.dart';
+import 'package:app_default/features/onboarding/onboarding_screen.dart';
+import 'package:app_default/features/splash/splash_screen.dart';
 import 'package:flutter/material.dart';
 
 class AppRoutes {
