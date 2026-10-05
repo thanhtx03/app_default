@@ -1,0 +1,18 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Flutter: Debug (Normal)",
+      "request": "launch",
+      "type": "dart"
+    },
+    {
+      "name": "Flutter: Debug (No Ads)",
+      "request": "launch",
+      "type": "dart",
+      "args": [
+        "--dart-define=DISABLE_ADS=true"
+      ]
+    }
+  ]
+}

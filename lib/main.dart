@@ -3,7 +3,6 @@ import 'package:app_default/app/routes/app_routes.dart';
 import 'package:app_default/app/services/ads_service.dart';
 import 'package:app_default/app/bindings/initial_binding.dart';
 import 'package:app_default/app/translation/app_translations.dart';
-import 'package:exo_ads/exo_ads.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -11,10 +10,8 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   // Khởi tạo Firebase và các services khác
   await InitialBinding().initializeServices();
- // Khởi tạo Ads Service
+  // Khởi tạo Ads Service
   await AdsService.instance.initialize();
-
-  ExoAds.instance.registerAdsFromRemoteConfig();
 
   runApp(const MyApp());
 }
