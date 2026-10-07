@@ -9,6 +9,13 @@ class AdsLogger {
 
   static final AdsLogger instance = AdsLogger._();
 
+  /// Cấu hình tắt toàn bộ log khi chạy ở chế độ Release (app thật), chỉ hiển thị khi Debug
+  static void setupLogging() {
+    if (kReleaseMode) {
+      debugPrint = (String? message, {int? wrapWidth}) {};
+    }
+  }
+
   bool _isListening = false;
   DateTime? _lastInterShowTime;
   final DateTime _appStartTime = DateTime.now();
@@ -57,6 +64,8 @@ class AdsLogger {
 
   /// Lắng nghe các sự kiện của ExoAds và in log tên Ads (adKey) ra Logcat/Console
   void listenToAdEvents() {
+    // Không chạy listener khi ở chế độ release để tiết kiệm tài nguyên và bảo mật
+    if (!kDebugMode) return;
     if (_isListening) return;
     _isListening = true;
 
@@ -112,10 +121,12 @@ class AdsLogger {
     });
   }
 
-  /// In thông báo ra debugPrint và logcat
+  /// In thông báo ra debugPrint và logcat (chỉ hiển thị khi debug)
   void logToLogcat(String message) {
-    debugPrint(message);
-    developer.log(message, name: 'ExoAdsLogcat');
+    if (kDebugMode) {
+      debugPrint(message);
+      developer.log(message, name: 'ExoAdsLogcat');
+    }
   }
 
   /// Hủy đăng ký lắng nghe sự kiện
