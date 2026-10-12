@@ -17,13 +17,13 @@ class _LanguageScreenState extends State<LanguageScreen> {
     return ExoLanguageView(
       title: 'Language'.tr,
       theme: AppTheme.exoTheme(),
-      initialSelectedCode: const Locale('en', 'US'),
+      initialSelectedCode: const Locale('en'),
       languages: exoDefaultLanguageOptions
           .where((option) => option.locale.languageCode != 'vi')
           .toList(),
-      onSubmit: (selected) {
-        Get.updateLocale(selected.locale);
-        Get.offNamed(AppRoutes.onboarding);
+      onSubmit: (selected) async {
+        await Get.updateLocale(selected.locale);
+        Get.offAllNamed(AppRoutes.onboarding);
       },
     );
   }

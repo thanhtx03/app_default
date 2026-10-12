@@ -16,9 +16,13 @@ class NoInternetScreen {
     );
     ExoAds.instance.noInternetBackgroundColor = AppColors.background;
     ExoAds.instance.noInternetTitle = () => 'No Internet'.tr;
+    ExoAds.instance.noInternetTitleColor = AppColors.textPrimary;
+    
     ExoAds.instance.noInternetSubtitle = () => 'No internet connection'.tr;
+    ExoAds.instance.noInternetSubtitleColor = AppColors.textPrimary;
     ExoAds.instance.noInternetDescription = () =>
         'No internet connection available due \nto network or service issue'.tr;
+    ExoAds.instance.noInternetDescriptionColor = AppColors.textPrimary;
     ExoAds.instance.noInternetRetryLabel = () => 'Try Again'.tr;
     ExoAds.instance.noInternetButtonColor = AppColors.primaryAdsButton;
     ExoAds.instance.noInternetButtonTextColor = AppColors.textPrimaryAds;

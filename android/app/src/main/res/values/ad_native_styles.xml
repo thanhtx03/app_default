@@ -24,6 +24,7 @@
 
     <!-- ✅ Tiêu đề quảng cáo -->
     <style name="Native.AdHeadline">
+        <item name="android:background">@android:color/transparent</item>
         <item name="android:layout_width">0dp</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:ellipsize">end</item>
@@ -35,6 +36,7 @@
 
     <!-- ✅ Nội dung quảng cáo -->
     <style name="Native.AdBody">
+        <item name="android:background">@android:color/transparent</item>
         <item name="android:layout_width">0dp</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:ellipsize">end</item>
@@ -75,7 +77,7 @@
         <item name="android:textColor">#FFFFFF</item>
         <item name="android:textSize">12sp</item>
         <item name="android:text">@string/ad_attribution</item>
-        <item name="android:background">#FFCC66</item>
+        <item name="android:background">#FFFFFF</item>
         <item name="android:width">15dp</item>
         <item name="android:height">15dp</item>
     </style>

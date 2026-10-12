@@ -1,0 +1,31 @@
+import 'package:app_default/app/translation/translation_keys.dart';
+
+const Map<String, String> ja = {
+  TranslationKeys.hello: 'こんにちは',
+  TranslationKeys.noInternet: 'インターネットなし',
+  TranslationKeys.noInternetConnection: 'インターネット接続なし',
+  TranslationKeys.noInternetDesc: 'ネットワークまたはサービスの問題により\nインターネット接続が利用できません',
+  TranslationKeys.tryAgain: '再試行',
+  TranslationKeys.welcomeToOurApp: 'アプリへようこそ',
+  TranslationKeys.continueText: '続ける',
+  TranslationKeys.title1: '素早くて簡単',
+  TranslationKeys.description1: 'ワンタップでお気に入りの動画をダウンロード – 高速で快適、驚くほどシンプル。',
+  TranslationKeys.title2: '複数プラットフォーム対応',
+  TranslationKeys.description2: '人気の動画プラットフォームからわずか数秒で簡単にダウンロード。',
+  TranslationKeys.title3: '高画質＆完全無料',
+  TranslationKeys.description3: '鮮明で高画質な動画を完全無料でお楽しみいただけます。',
+  'Fast & Easy': '素早くて簡単',
+  'Download your favorite videos with just one tap – fast, neat, and incredibly simple.': 'ワンタップでお気に入りの動画をダウンロード – 高速で快適、驚くほどシンプル。',
+  'Supports Multiple Platforms': '複数プラットフォーム対応',
+  'Easily download videos from many popular platforms in just a few seconds.': '人気の動画プラットフォームからわずか数秒で簡単にダウンロード。',
+  'High Quality & Free': '高画質＆完全無料',
+  'Enjoy sharp video quality completely free of charge.': '鮮明で高画質な動画を完全無料でお楽しみいただけます。',
+  TranslationKeys.next: '次へ',
+  'NEXT': '次へ',
+  'next': '次へ',
+  TranslationKeys.getStarted: '始める',
+  'GET STARTED': '始める',
+  'get_started': '始める',
+  TranslationKeys.language: '言語',
+
+  };

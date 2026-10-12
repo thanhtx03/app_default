@@ -1,3 +1,4 @@
+import 'package:exo_ads/exo_ads.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -36,6 +37,9 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
+      navigatorObservers: [
+        ExoRouteObserver(),
+      ],
       initialRoute: AppRoutes.splash,
       routes: appRoutes,
     );

@@ -1,0 +1,31 @@
+import 'package:app_default/app/translation/translation_keys.dart';
+
+const Map<String, String> ko = {
+  TranslationKeys.hello: '안녕하세요',
+  TranslationKeys.noInternet: '인터넷 없음',
+  TranslationKeys.noInternetConnection: '인터넷 연결 없음',
+  TranslationKeys.noInternetDesc: '네트워크 또는 서비스 문제로 인해\n인터넷에 연결할 수 없습니다',
+  TranslationKeys.tryAgain: '다시 시도',
+  TranslationKeys.welcomeToOurApp: '저희 앱에 오신 것을 환영합니다',
+  TranslationKeys.continueText: '계속',
+  TranslationKeys.title1: '빠르고 간편하게',
+  TranslationKeys.description1: '단 한 번의 탭으로 좋아하는 동영상을 다운로드하세요 – 빠르고 깔끔하며 매우 간단합니다.',
+  TranslationKeys.title2: '다양한 플랫폼 지원',
+  TranslationKeys.description2: '인기 있는 여러 플랫폼의 동영상을 몇 초 만에 쉽게 다운로드하세요.',
+  TranslationKeys.title3: '고화질 & 무료',
+  TranslationKeys.description3: '선명한 화질의 동영상을 완전 무료로 즐겨보세요.',
+  'Fast & Easy': '빠르고 간편하게',
+  'Download your favorite videos with just one tap – fast, neat, and incredibly simple.': '단 한 번의 탭으로 좋아하는 동영상을 다운로드하세요 – 빠르고 깔끔하며 매우 간단합니다.',
+  'Supports Multiple Platforms': '다양한 플랫폼 지원',
+  'Easily download videos from many popular platforms in just a few seconds.': '인기 있는 여러 플랫폼의 동영상을 몇 초 만에 쉽게 다운로드하세요.',
+  'High Quality & Free': '고화질 & 무료',
+  'Enjoy sharp video quality completely free of charge.': '선명한 화질의 동영상을 완전 무료로 즐겨보세요.',
+  TranslationKeys.next: '다음',
+  'NEXT': '다음',
+  'next': '다음',
+  TranslationKeys.getStarted: '시작하기',
+  'GET STARTED': '시작하기',
+  'get_started': '시작하기',
+  TranslationKeys.language: '언어',
+
+};

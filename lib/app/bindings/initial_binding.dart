@@ -7,28 +7,18 @@ class InitialBinding {
       await Firebase.initializeApp();
       final rc = FirebaseRemoteConfig.instance;
       await rc.setConfigSettings(RemoteConfigSettings(
-        fetchTimeout: const Duration(seconds: 10),
-        minimumFetchInterval: Duration.zero,
+        fetchTimeout: const Duration(seconds: 3),
+        minimumFetchInterval: kDebugMode ? Duration.zero : const Duration(hours: 12),
       ));
-      // Fetch latest Remote Config and register ads
-      try {
-        final bool updated = await rc.fetchAndActivate();
-        if (kDebugMode) {
-          debugPrint('[Firebase Remote Config] Connected & Updated from Server: $updated');
-          final allKeys = rc.getAll().keys.toList();
-          debugPrint('[Firebase Remote Config] Total keys: ${allKeys.length}, Keys: $allKeys');
-          for (final key in allKeys) {
-            debugPrint('[Firebase Remote Config] Param "$key": ${rc.getString(key)}');
-          }
-        }
-      } catch (e) {
-        if (kDebugMode) {
-          debugPrint('[Firebase Remote Config] Fetch failed: $e');
-        }
+      // Kích hoạt ngay dữ liệu cache đã lưu từ trước (tức thời 0ms, không chờ mạng)
+      await rc.activate();
+      if (kDebugMode) {
+        debugPrint('[Firebase Remote Config] Initialized & Activated local cache.');
       }
     } catch (e) {
-      debugPrint('[InitialBinding] Firebase init failed: $e');
+      if (kDebugMode) {
+        debugPrint('[InitialBinding] Firebase init failed: $e');
+      }
     }
-
   }
 }

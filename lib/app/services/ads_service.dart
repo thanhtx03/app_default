@@ -8,6 +8,7 @@ import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:firebase_remote_config/firebase_remote_config.dart';
 import 'package:flutter/foundation.dart';
 import 'package:get/get.dart';
+import 'package:google_mobile_ads/google_mobile_ads.dart';
 
 /// Service wrapper for ExoAds initialization and lifecycle hooks.
 class AdsService {
@@ -32,7 +33,8 @@ class AdsService {
 
   /// Initialize ExoAds, fetch remote config, and register ads.
   Future<void> initialize() async {
-    ExoAds.instance.nativeAdBackgroundColor = AppColors.black;
+    ExoAds.instance.nativeAdBackgroundColor = AppColors.background;
+    //ExoAds.instance.nativeAdCtaButtonColor
     // Setup UI for Welcome Back & No Internet Screens
     WelcomeBackScreen.setupStyle();
     NoInternetScreen.setupStyle();
@@ -46,6 +48,10 @@ class AdsService {
 
     final isAdsDisabled = AdsConfig.isAdsDisabled;
 
+    final testDevices = [
+      'C58E76FBAAB79F4B40A634006766F54B',
+    ];
+
     await ExoAds.instance.initialize(
       remoteConfig: FirebaseRemoteConfig.instance,
       analytics: FirebaseAnalytics.instance,
@@ -53,20 +59,37 @@ class AdsService {
       adjustEventKey: '',
       isDevMode: kDebugMode,
       adsEnabled: !isAdsDisabled,
+      testDeviceIds: testDevices,
+      requestConfiguration: RequestConfiguration(testDeviceIds: testDevices),
       onReconnected: () {
         if (AdsConfig.isAdsDisabled) {
           ExoAds.instance.enableAds(false);
         }
       },
+    ).timeout(
+      const Duration(seconds: 4),
+      onTimeout: () {
+        if (kDebugMode) {
+          debugPrint('[AdsService] ExoAds.initialize timed out after 4s, continuing...');
+        }
+      },
     );
 
-    await ExoAds.instance.fetchRemoteConfig();
+    // Fetch remote config với timeout 3s để tránh kẹt nếu mạng yếu/chậm
+    await ExoAds.instance.fetchRemoteConfig().timeout(
+      const Duration(seconds: 3),
+      onTimeout: () {
+        if (kDebugMode) {
+          debugPrint('[AdsService] Remote config fetch timed out after 3s, using cached/defaults.');
+        }
+      },
+    );
     await ExoAds.instance.registerAdsFromRemoteConfig();
 
     _applyAdsState();
 
     _initialized = true;
-    if (!isAdsDisabled) {
+    if (!isAdsDisabled && kDebugMode) {
       AdsLogger.instance.logToLogcat(
         '[AdsService] ExoAds initialized. adsEnabled: ${ExoAds.instance.adsEnabled}',
       );

@@ -1,3 +1,5 @@
+import 'package:app_default/app/translation/ja.dart';
+import 'package:app_default/app/translation/ko.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:app_default/app/translation/ar.dart';
@@ -9,8 +11,21 @@ import 'package:app_default/app/translation/hi.dart';
 import 'package:app_default/app/translation/id.dart';
 import 'package:app_default/app/translation/pt.dart';
 
+
 class AppTranslations extends Translations {
   static const fallbackLocale = Locale('en', 'US');
+  static const List<Locale> supportedLocales = [
+    Locale('en', 'US'),
+    Locale('es', 'ES'),
+    Locale('pt', 'PT'),
+    Locale('hi', 'IN'),
+    Locale('de', 'DE'),
+    Locale('fr', 'FR'),
+    Locale('id', 'ID'),
+    Locale('ar', 'SA'),
+    Locale('ja', 'JP'),
+    Locale('ko', 'KR'),
+  ];
 
   @override
   Map<String, Map<String, String>> get keys => {
@@ -50,5 +65,13 @@ class AppTranslations extends Translations {
         // Arabic
         'ar': ar,
         'ar_SA': ar,
+
+        // Japanese
+        'ja': ja,
+        'ja_JP': ja,
+
+        // Korean
+        'ko': ko,
+        'ko_KR': ko,
       };
 }

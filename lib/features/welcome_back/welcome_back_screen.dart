@@ -10,7 +10,7 @@ class WelcomeBackScreen {
   /// Cấu hình các thuộc tính style và giao diện Welcome Back cho ExoAds
   static void setupStyle() {
     ExoAds.instance.welcomeBackLogo = Image.asset(
-      'assets/images/icon_app.png',
+      'assets/icons/ic_app.png',
       width: 50,
       height: 50,
     );
@@ -19,12 +19,16 @@ class WelcomeBackScreen {
       width: 335,
       height: 335,
     );
-    // ExoAds.instance.welcomeBackBackgroundColor = AppColors.background;
+    ExoAds.instance.welcomeBackBackgroundColor = AppColors.background;
     ExoAds.instance.welcomeBackAppName = () => AppConstants.appName;
+    ExoAds.instance.welcomeBackAppNameColor = AppColors.primaryAdsButtonBackground;
     ExoAds.instance.welcomeBackTitle = () => 'Welcome to our app'.tr;
-    ExoAds.instance.welcomeBackText = () => 'Welcome to our app'.tr;
+    ExoAds.instance.welcomeBackTitleColor = AppColors.primaryAdsButtonBackground;
+    ExoAds.instance.welcomeBackText = () => 'We\'re glad to have you here again. Let\'s pick up \nwhere you left off and continue your journey!'.tr;
+    ExoAds.instance.welcomeBackTextColor = AppColors.primaryAdsButtonBackground;
+    
     ExoAds.instance.welcomeBackNextButtonText = () => 'Continue'.tr;
-    ExoAds.instance.welcomeBackButtonColor = AppColors.primaryAdsButtonBackground;
+    ExoAds.instance.welcomeBackButtonColor = AppColors.background;
     ExoAds.instance.welcomeBackButtonTextColor = AppColors.primaryAdsButtonText;
     ExoAds.instance.welcomeBackButtonMargin =
         const EdgeInsets.symmetric(horizontal: 48);
