@@ -1,4 +1,4 @@
-package com.klt.videoplayer.download
+package com.example.app_default
 
 import io.flutter.embedding.android.FlutterActivity
 import io.flutter.embedding.engine.FlutterEngine

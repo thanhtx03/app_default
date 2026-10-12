@@ -69,6 +69,21 @@ dev_dependencies:
   flutter_lints: ^6.0.0
   flutter_launcher_icons: ^0.13.1
   flutter_native_splash: ^2.4.7
+  flutter_flavorizr: ^2.4.1
+
+# Flavorizr
+flavorizr:
+  flavors:
+    dev:
+      app:
+        name: "(Dev) App Default"
+      android:
+        applicationId: "com.example.app_default.dev"
+    prod:
+      app:
+        name: "App Default"
+      android:
+        applicationId: "com.example.app_default"
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

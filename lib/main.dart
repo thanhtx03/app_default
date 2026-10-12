@@ -9,18 +9,32 @@ import 'package:app_default/app/services/ads_logger.dart';
 import 'package:app_default/app/services/ads_service.dart';
 import 'package:app_default/app/translation/app_translations.dart';
 
+import 'dart:async';
+
+import 'package:firebase_crashlytics/firebase_crashlytics.dart';
+import 'package:flutter/services.dart';
+
 void main() async {
-  WidgetsFlutterBinding.ensureInitialized();
+  runZonedGuarded(
+    () async {
+      WidgetsFlutterBinding.ensureInitialized();
 
-  // Tắt toàn bộ log khi chạy app thật (Release), chỉ hiển thị khi Debug
-  AdsLogger.setupLogging();
+      // Tắt toàn bộ log khi chạy app thật (Release), chỉ hiển thị khi Debug
+      AdsLogger.setupLogging();
 
-  // Khởi tạo Firebase và các services khác
-  await InitialBinding().initializeServices();
-  // Khởi tạo Ads Service
-  await AdsService.instance.initialize();
+      // Khởi tạo Firebase và các services khác
+      await InitialBinding().initializeServices();
+      // Khởi tạo Ads Service
+      await AdsService.instance.initialize();
 
-  runApp(const MyApp());
+      runApp(const MyApp());
+    },
+    ((error, stack) {
+      if (appFlavor == 'prod') {
+        FirebaseCrashlytics.instance.recordError(error, stack);
+      }
+    }),
+  );
 }
 
 class MyApp extends StatelessWidget {

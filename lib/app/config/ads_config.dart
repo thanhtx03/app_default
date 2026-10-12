@@ -14,7 +14,7 @@ class AdsConfig {
   AdsConfig._();
 
   /// Công tắc cục bộ tắt Ads khi debug (được thay đổi tự động bởi script terminal).
-  static const bool _debugDisableAds = true;
+  static const bool _debugDisableAds = false;
 
   /// Kiểm tra xem quảng cáo có bị tắt hay không.
   /// Ưu tiên:
