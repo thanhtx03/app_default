@@ -15,7 +15,7 @@ class WelcomeBackScreen {
       height: 50,
     );
     ExoAds.instance.welcomeBackCenterImage = Image.asset(
-      'assets/images/img_welcome_back.png',
+      'assets/img_default/wcb/img_welcome_back.png',
       width: 335,
       height: 335,
     );

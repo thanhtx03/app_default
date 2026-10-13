@@ -80,10 +80,10 @@ flutter_launcher_icons:
   remove_alpha_ios: true
 flutter_native_splash:
   color: "#000000"
-  image: assets/icons/ic_custom_splash.png
+  image: assets/img_default/splash/ic_native_splash.png
   android_12:
     color: "#000000"
-    image: assets/icons/ic_custom_splash.png
+    image: assets/img_default/splash/ic_native_splash.png
   fullscreen: false
   android_gravity: center
   ios_content_mode: center

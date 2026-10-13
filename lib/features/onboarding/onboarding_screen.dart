@@ -25,17 +25,17 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
         ExoOnboardingPage(
           title: 'Title1'.tr,
           description: 'Description1'.tr,
-          image: const AssetImage('assets/images/onboarding_1.png'),
+          image: const AssetImage('assets/img_default/intro/intro1.png'),
         ),
         ExoOnboardingPage(
           title: 'Title2'.tr,
           description: 'Description2'.tr,
-          image: const AssetImage('assets/images/onboarding_2.png'),
+          image: const AssetImage('assets/img_default/intro/intro2.png'),
         ),
         ExoOnboardingPage(
           title: 'Title3'.tr,
           description: 'Description3'.tr,
-          image: const AssetImage('assets/images/onboarding_3.png'),
+          image: const AssetImage('assets/img_default/intro/intro3.png'),
         ),
       ],
       nextText: 'NEXT'.tr,

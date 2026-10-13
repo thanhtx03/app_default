@@ -19,10 +19,10 @@ class _SplashScreenState extends State<SplashScreen> {
     return ExoSplashView(
       appName: AppConstants.appName,
       theme: AppTheme.exoTheme(),
-      logo: const Icon(
-        Icons.rocket_launch_rounded,
-        size: 88,
-        color: AppColors.primaryAdsButton,
+      logo: Image.asset(
+        'assets/icons/ic_app.png',
+        width: 88,
+        height: 88,
       ),
       onComplete: () => Get.offNamed(AppRoutes.language),
     );

@@ -10,7 +10,7 @@ class NoInternetScreen {
   /// Cấu hình các thuộc tính style và hành vi khi mất kết nối mạng cho ExoAds
   static void setupStyle() {
     ExoAds.instance.noInternetIllustration = Image.asset(
-      'assets/images/img_no_internet.png',
+      'assets/img_default/no_internet/img_no_internet.png',
       width: 268,
       height: 268,
     );
