@@ -14,7 +14,9 @@ class AppTheme {
     Color? textColor,
     Color? secondaryTextColor,
     Color? buttonTextColor,
-  }) {
+  }) 
+  // dùng bg trắng cho scr default
+  {
     return ExoScreenTheme(
       primaryColor: primaryColor ?? AppColors.primary,
       buttonColor: buttonColor ?? AppColors.primary,
@@ -26,4 +28,18 @@ class AppTheme {
       trackColor: AppColors.track,
     );
   }
+  
+  // dùng bg trắng cho scr default
+  /* {
+    return ExoScreenTheme(
+      primaryColor: primaryColor ?? AppColors.primary,
+      buttonColor: buttonColor ?? AppColors.primary,
+      backgroundColor: backgroundColor ?? AppColors.background,
+      textColor: textColor ?? AppColors.textPrimary,
+      secondaryTextColor: secondaryTextColor ?? AppColors.textPrimary,
+      buttonTextColor: buttonTextColor ?? AppColors.background,
+      adBackgroundColor: AppColors.bgAds,
+      trackColor: AppColors.track,
+    );
+  } */
 }
