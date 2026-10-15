@@ -18,14 +18,7 @@ void main() async {
   runZonedGuarded(
     () async {
       WidgetsFlutterBinding.ensureInitialized();
-
-      // Tắt toàn bộ log khi chạy app thật (Release), chỉ hiển thị khi Debug
       AdsLogger.setupLogging();
-
-      // Khởi tạo Firebase và các services khác
-      await InitialBinding().initializeServices();
-      // Khởi tạo Ads Service
-      await AdsService.instance.initialize();
 
       runApp(const MyApp());
     },
