@@ -39,12 +39,19 @@ android {
         versionName = flutter.versionName
     }
 
+    val keystoreFile = keystoreProperties["storeFile"]?.let { file(it as String) }
+    val hasKeystore = keystorePropertiesFile.exists() && keystoreFile != null && keystoreFile.exists()
+
     signingConfigs {
-        create("release") {
-            keyAlias = keystoreProperties["keyAlias"] as String
-            keyPassword = keystoreProperties["keyPassword"] as String
-            storeFile = keystoreProperties["storeFile"]?.let { file(it) }
-            storePassword = keystoreProperties["storePassword"] as String
+        // Release signing — only created when keystore.jks actually exists (prod)
+        // dev flavor falls back to debug signing automatically
+        if (hasKeystore) {
+            create("release") {
+                keyAlias = keystoreProperties["keyAlias"] as String
+                keyPassword = keystoreProperties["keyPassword"] as String
+                storeFile = keystoreFile
+                storePassword = keystoreProperties["storePassword"] as String
+            }
         }
     }
 
@@ -52,7 +59,13 @@ android {
         release {
             isMinifyEnabled = false
             isShrinkResources = false
-            signingConfig = signingConfigs.getByName("release")
+            // Use release signing only when keystore.jks actually exists (prod)
+            // otherwise fall back to debug signing (dev — no keystore needed)
+            signingConfig = if (hasKeystore) {
+                signingConfigs.getByName("release")
+            } else {
+                signingConfigs.getByName("debug")
+            }
         }
         debug {
             isMinifyEnabled = false
