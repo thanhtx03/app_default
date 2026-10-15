@@ -15,31 +15,16 @@ class AppTheme {
     Color? secondaryTextColor,
     Color? buttonTextColor,
   }) 
-  // dùng bg trắng cho scr default
   {
     return ExoScreenTheme(
-      primaryColor: primaryColor ?? AppColors.primary,
-      buttonColor: buttonColor ?? AppColors.primary,
-      backgroundColor: backgroundColor ?? AppColors.background,
-      textColor: textColor ?? AppColors.textPrimary,
-      secondaryTextColor: secondaryTextColor ?? AppColors.textSecondary,
-      buttonTextColor: buttonTextColor ?? AppColors.textPrimary,
-      adBackgroundColor: AppColors.bgAds,
-      trackColor: AppColors.track,
+      primaryColor: primaryColor ?? AppColors.primaryDefault,
+      buttonColor: buttonColor ?? AppColors.primaryDefault,
+      backgroundColor: backgroundColor ?? AppColors.backgroundColorDefault,
+      textColor: textColor ?? AppColors.textColorDefault,
+      secondaryTextColor: secondaryTextColor ?? AppColors.secondaryTextColorDefault,
+      buttonTextColor: buttonTextColor ?? AppColors.buttonTextColorDefault,
+      adBackgroundColor: AppColors.backgroundAdsDefault,
+      trackColor: AppColors.trackDefault,
     );
   }
-  
-  // dùng bg trắng cho scr default
-  /* {
-    return ExoScreenTheme(
-      primaryColor: primaryColor ?? AppColors.primary,
-      buttonColor: buttonColor ?? AppColors.primary,
-      backgroundColor: backgroundColor ?? AppColors.background,
-      textColor: textColor ?? AppColors.textPrimary,
-      secondaryTextColor: secondaryTextColor ?? AppColors.textPrimary,
-      buttonTextColor: buttonTextColor ?? AppColors.background,
-      adBackgroundColor: AppColors.bgAds,
-      trackColor: AppColors.track,
-    );
-  } */
 }

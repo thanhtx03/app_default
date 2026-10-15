@@ -14,18 +14,18 @@ class NoInternetScreen {
       width: 268,
       height: 268,
     );
-    ExoAds.instance.noInternetBackgroundColor = AppColors.background;
+    ExoAds.instance.noInternetBackgroundColor = AppColors.backgroundColorDefault;
     ExoAds.instance.noInternetTitle = () => 'No Internet'.tr;
-    ExoAds.instance.noInternetTitleColor = AppColors.textPrimary;
+    ExoAds.instance.noInternetTitleColor = AppColors.textColorDefault;
     
     ExoAds.instance.noInternetSubtitle = () => 'No internet connection'.tr;
-    ExoAds.instance.noInternetSubtitleColor = AppColors.textPrimary;
+    ExoAds.instance.noInternetSubtitleColor = AppColors.secondaryTextColorDefault;
     ExoAds.instance.noInternetDescription = () =>
         'No internet connection available due \nto network or service issue'.tr;
-    ExoAds.instance.noInternetDescriptionColor = AppColors.textPrimary;
+    ExoAds.instance.noInternetDescriptionColor = AppColors.secondaryTextColorDefault;
     ExoAds.instance.noInternetRetryLabel = () => 'Try Again'.tr;
-    ExoAds.instance.noInternetButtonColor = AppColors.primaryAdsButton;
-    ExoAds.instance.noInternetButtonTextColor = AppColors.textPrimaryAds;
+    ExoAds.instance.noInternetButtonColor = AppColors.buttonColorDefault;
+    ExoAds.instance.noInternetButtonTextColor = AppColors.buttonTextColorDefault;
     ExoAds.instance.noInternetButtonMargin =
         const EdgeInsets.symmetric(horizontal: 48);
     ExoAds.instance.noInternetButtonPadding =

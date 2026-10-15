@@ -16,10 +16,11 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
   @override
   Widget build(BuildContext context) {
     return ExoOnboardingView(
-      actionTextColor: AppColors.primaryAdsButton,
+      actionTextColor: AppColors.actionTextColorDefault,
+      indicatorActiveColor: AppColors.indicatorActiveColorDefault,
+      indicatorInactiveColor: AppColors.indicatorInactiveColorDefault,
       theme: AppTheme.exoTheme(
-        primaryColor: AppColors.primaryAdsButton,
-        buttonColor: AppColors.primaryAdsButton,
+        buttonColor: AppColors.buttonColorDefault,
       ),
       pages: [
         ExoOnboardingPage(
