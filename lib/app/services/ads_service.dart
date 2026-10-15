@@ -52,6 +52,7 @@ class AdsService {
       'C58E76FBAAB79F4B40A634006766F54B',
     ];
 
+    // Khởi tạo ExoAds và chờ hoàn tất để đảm bảo SharedPreferences session count được tăng chính xác
     await ExoAds.instance.initialize(
       remoteConfig: FirebaseRemoteConfig.instance,
       analytics: FirebaseAnalytics.instance,
@@ -66,21 +67,14 @@ class AdsService {
           ExoAds.instance.enableAds(false);
         }
       },
-    ).timeout(
-      const Duration(seconds: 4),
-      onTimeout: () {
-        if (kDebugMode) {
-          debugPrint('[AdsService] ExoAds.initialize timed out after 4s, continuing...');
-        }
-      },
     );
 
-    // Fetch remote config với timeout 3s để tránh kẹt nếu mạng yếu/chậm
+    // Fetch remote config với timeout 10s để đảm bảo lấy được cấu hình mới nhất
     await ExoAds.instance.fetchRemoteConfig().timeout(
-      const Duration(seconds: 3),
+      const Duration(seconds: 10),
       onTimeout: () {
         if (kDebugMode) {
-          debugPrint('[AdsService] Remote config fetch timed out after 3s, using cached/defaults.');
+          debugPrint('[AdsService] Remote config fetch timed out after 10s, using cached/defaults.');
         }
       },
     );
@@ -91,7 +85,7 @@ class AdsService {
     _initialized = true;
     if (!isAdsDisabled && kDebugMode) {
       AdsLogger.instance.logToLogcat(
-        '[AdsService] ExoAds initialized. adsEnabled: ${ExoAds.instance.adsEnabled}',
+        '[AdsService] ExoAds initialized. Current session: ${ExoAds.instance.appSession}, adsEnabled: ${ExoAds.instance.adsEnabled}',
       );
       AdsLogger.instance.logToLogcat(
         '[AdsService] Registered ad keys: ${ExoAds.instance.definitions.keys.toList()}',

@@ -23,14 +23,24 @@ class InitialBinding {
 
       final rc = FirebaseRemoteConfig.instance;
       await rc.setConfigSettings(RemoteConfigSettings(
-        fetchTimeout: const Duration(seconds: 3),
+        fetchTimeout: const Duration(seconds: 10),
         minimumFetchInterval: kDebugMode ? Duration.zero : const Duration(hours: 12),
       ));
-      // Kích hoạt ngay dữ liệu cache đã lưu từ trước (tức thời 0ms, không chờ mạng)
-      await rc.activate();
+      try {
+        final updated = await rc.fetchAndActivate();
+        if (kDebugMode) {
+          debugPrint('[Firebase Remote Config] Fetch & Activate result: $updated');
+        }
+      } catch (e) {
+        // Fallback: Kích hoạt ngay dữ liệu cache đã lưu từ trước nếu offline/mạng chậm
+        await rc.activate();
+        if (kDebugMode) {
+          debugPrint('[Firebase Remote Config] Fetch failed, activated local cache: $e');
+        }
+      }
       if (kDebugMode) {
         debugPrint('[InitialBinding] Running flavor: $appFlavor');
-        debugPrint('[Firebase Remote Config] Initialized & Activated local cache.');
+        debugPrint('[Firebase Remote Config] Initialized successfully.');
       }
     } catch (e) {
       if (kDebugMode) {

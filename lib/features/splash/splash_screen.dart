@@ -1,4 +1,3 @@
-import 'package:app_default/app/config/app_colors.dart';
 import 'package:app_default/app/config/app_constants.dart';
 import 'package:app_default/app/config/app_theme.dart';
 import 'package:app_default/app/routes/app_routes.dart';
