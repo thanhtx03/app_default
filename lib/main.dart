@@ -2,11 +2,9 @@ import 'package:exo_ads/exo_ads.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import 'package:app_default/app/bindings/initial_binding.dart';
 import 'package:app_default/app/config/app_constants.dart';
 import 'package:app_default/app/routes/app_routes.dart';
 import 'package:app_default/app/services/ads_logger.dart';
-import 'package:app_default/app/services/ads_service.dart';
 import 'package:app_default/app/translation/app_translations.dart';
 
 import 'dart:async';
@@ -18,6 +16,9 @@ void main() async {
   runZonedGuarded(
     () async {
       WidgetsFlutterBinding.ensureInitialized();
+      await SystemChrome.setPreferredOrientations([
+        DeviceOrientation.portraitUp,
+      ]);
       AdsLogger.setupLogging();
 
       runApp(const MyApp());
