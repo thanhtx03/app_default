@@ -1,4 +1,3 @@
-import 'package:app_default/app/config/ads_config.dart';
 import 'package:app_default/app/config/app_colors.dart';
 import 'package:app_default/app/services/ads_logger.dart';
 import 'package:app_default/features/no_internet/no_internet_screen.dart';
@@ -21,16 +20,6 @@ class AdsService {
   /// Lắng nghe các sự kiện của ExoAds (ủy quyền sang AdsLogger)
   void listenToAdEvents() => AdsLogger.instance.listenToAdEvents();
 
-  /// Áp dụng trạng thái bật/tắt ads
-  void _applyAdsState() {
-    if (AdsConfig.isAdsDisabled) {
-      ExoAds.instance.enableAds(false);
-      AdsLogger.instance.logToLogcat(
-        '🚫 [AdsService] ADS ARE DISABLED: Công tắc tắt ads đang BẬT. Tất cả quảng cáo (Splash, Native, Interstitial, Banner) đã bị tắt.',
-      );
-    }
-  }
-
   /// Initialize ExoAds, fetch remote config, and register ads.
   Future<void> initialize() async {
     ExoAds.instance.nativeAdBackgroundColor = AppColors.background;
@@ -46,8 +35,6 @@ class AdsService {
     ExoAdBase.useNativePlatformFactory = true;
     ExoAds.navigatorKey = Get.key; // REQUIRED for Native Full Ad Dialogs
 
-    final isAdsDisabled = AdsConfig.isAdsDisabled;
-
     final testDevices = [
       'C58E76FBAAB79F4B40A634006766F54B',
     ];
@@ -59,14 +46,9 @@ class AdsService {
       adjustToken: '',
       adjustEventKey: '',
       isDevMode: kDebugMode,
-      adsEnabled: !isAdsDisabled,
+      adsEnabled: true,
       testDeviceIds: testDevices,
       requestConfiguration: RequestConfiguration(testDeviceIds: testDevices),
-      onReconnected: () {
-        if (AdsConfig.isAdsDisabled) {
-          ExoAds.instance.enableAds(false);
-        }
-      },
     );
 
     // Fetch remote config với timeout 10s để đảm bảo lấy được cấu hình mới nhất
@@ -80,10 +62,8 @@ class AdsService {
     );
     await ExoAds.instance.registerAdsFromRemoteConfig();
 
-    _applyAdsState();
-
     _initialized = true;
-    if (!isAdsDisabled && kDebugMode) {
+    if (kDebugMode) {
       AdsLogger.instance.logToLogcat(
         '[AdsService] ExoAds initialized. Current session: ${ExoAds.instance.appSession}, adsEnabled: ${ExoAds.instance.adsEnabled}',
       );

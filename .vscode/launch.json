@@ -13,18 +13,6 @@
       "program": "lib/main.dart"
     },
     {
-      "name": "dev Debug (No Ads)",
-      "request": "launch",
-      "type": "dart",
-      "flutterMode": "debug",
-      "args": [
-        "--flavor",
-        "dev",
-        "--dart-define=DISABLE_ADS=true"
-      ],
-      "program": "lib/main.dart"
-    },
-    {
       "name": "dev Release",
       "request": "launch",
       "type": "dart",
@@ -43,18 +31,6 @@
       "args": [
         "--flavor",
         "prod"
-      ],
-      "program": "lib/main.dart"
-    },
-    {
-      "name": "prod Debug (No Ads)",
-      "request": "launch",
-      "type": "dart",
-      "flutterMode": "debug",
-      "args": [
-        "--flavor",
-        "prod",
-        "--dart-define=DISABLE_ADS=true"
       ],
       "program": "lib/main.dart"
     },

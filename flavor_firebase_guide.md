@@ -89,14 +89,8 @@ Trong tab **Run & Debug** (Ctrl+Shift+D hoặc Cmd+Shift+D), bạn chỉ cần c
 # Chạy bản Dev
 flutter run --flavor dev
 
-# Chạy bản Dev tắt Ads
-flutter run --flavor dev --dart-define=DISABLE_ADS=true
-
 # Chạy bản Prod
 flutter run --flavor prod
-
-# Chạy bản Prod tắt Ads
-flutter run --flavor prod --dart-define=DISABLE_ADS=true
 ```
 
 ---
