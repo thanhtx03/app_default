@@ -1,4 +1,5 @@
 import 'package:app_default/app/config/app_colors.dart';
+import 'package:app_default/app/services/ads_logger.dart';
 import 'package:app_default/features/no_internet/no_internet_screen.dart';
 import 'package:app_default/features/welcome_back/welcome_back_screen.dart';
 import 'package:exo_ads/exo_ads.dart';
@@ -15,12 +16,15 @@ class AdsService {
   static final AdsService instance = AdsService._();
 
   bool _initialized = false;
+    /// Lắng nghe các sự kiện của ExoAds (ủy quyền sang AdsLogger)
+  void listenToAdEvents() => AdsLogger.instance.listenToAdEvents();
 
   /// Initialize ExoAds, fetch remote config, and register ads.
   Future<void> initialize() async {
     ExoAds.instance.nativeAdBackgroundColor = AppColors.background;
     WelcomeBackScreen.setupStyle();
     NoInternetScreen.setupStyle();
+    listenToAdEvents();
 
     if (_initialized) return;
 
