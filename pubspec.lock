@@ -377,14 +377,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "4.7.3"
-  gma_mediation_liftoffmonetize:
-    dependency: "direct main"
-    description:
-      name: gma_mediation_liftoffmonetize
-      sha256: "0df3ab01dfc198c86b8c54de1b69a39b5f6553ea9b79440cc837dea50f918eee"
-      url: "https://pub.dev"
-    source: hosted
-    version: "1.5.4"
   gma_mediation_meta:
     dependency: "direct main"
     description:

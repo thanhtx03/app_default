@@ -24,17 +24,6 @@
       "program": "lib/main.dart"
     },
     {
-      "name": "prod Debug",
-      "request": "launch",
-      "type": "dart",
-      "flutterMode": "debug",
-      "args": [
-        "--flavor",
-        "prod"
-      ],
-      "program": "lib/main.dart"
-    },
-    {
       "name": "prod Release",
       "request": "launch",
       "type": "dart",
