@@ -43,12 +43,13 @@ class AdsService {
     }
 
     // Khởi tạo ExoAds và chờ hoàn tất để đảm bảo SharedPreferences session count được tăng chính xác
+    final isProd = appFlavor == 'prod';
     await ExoAds.instance.initialize(
       remoteConfig: FirebaseRemoteConfig.instance,
       analytics: FirebaseAnalytics.instance,
-      adjustToken: '4x514zi69lhc',
-      adjustEventKey: 'nbev2g',
-      isDevMode: appFlavor != 'prod',
+      adjustToken: isProd ? '4x514zi69lhc' : '',
+      adjustEventKey: isProd ? 'nbev2g' : '',
+      isDevMode: !isProd,
     );
 
     try {

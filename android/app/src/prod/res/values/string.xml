@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- AdMob App ID for PROD (Thay bằng ID thật của Prod khi phát hành) -->
     <string name="ads_app_id">ca-app-pub-3940256099942544~3347511713</string>
     <string name="facebook_app_id"></string>
     <string name="facebook_client_token"></string>
