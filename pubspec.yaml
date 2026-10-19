@@ -25,7 +25,7 @@ dependencies:
   gma_mediation_meta: ^1.4.3
   gma_mediation_pangle: 4.1.1
   #gma_mediation_applovin: ^2.4.0
-  #gma_mediation_liftoffmonetize: ^1.4.1
+  gma_mediation_liftoffmonetize: ^1.5.5
 
   # ---------- EXO ADS ----------
   get: ^4.7.3

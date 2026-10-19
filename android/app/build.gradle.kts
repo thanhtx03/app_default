@@ -73,6 +73,19 @@ android {
             signingConfig = signingConfigs.getByName("debug")
         }
     }
+
+    configurations.all {
+        exclude(group = "com.google.android.play", module = "hsdp")
+        resolutionStrategy.eachDependency {
+            if (
+                requested.group == "com.google.ads.mediation" &&
+                requested.name == "vungle"
+            ) {
+                useVersion("7.4.2.0")
+                because("Testing older Liftoff Monetize adapter")
+            }
+        }
+    }
 }
 
 kotlin {
