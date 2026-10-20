@@ -17,4 +17,6 @@ abstract class TranslationKeys {
   static const description2 = 'Description2';
   static const title3 = 'Title3';
   static const description3 = 'Description3';
+  static const title4 = 'Title4';
+  static const description4 = 'Description4';
 }

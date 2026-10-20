@@ -1,5 +1,5 @@
-import 'package:app_default/app/config/app_colors.dart';
 import 'package:app_default/app/config/app_theme.dart';
+import 'package:app_default/app/config/feature_colors.dart';
 import 'package:app_default/app/routes/app_routes.dart';
 import 'package:exo_ads/exo_ads.dart';
 import 'package:flutter/material.dart';
@@ -16,11 +16,11 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
   @override
   Widget build(BuildContext context) {
     return ExoOnboardingView(
-      actionTextColor: AppColors.actionTextColorDefault,
-      indicatorActiveColor: AppColors.indicatorActiveColorDefault,
-      indicatorInactiveColor: AppColors.indicatorInactiveColorDefault,
+      actionTextColor: FeatureColors.actionTextColorDefault,
+      indicatorActiveColor: FeatureColors.indicatorActiveColorDefault,
+      indicatorInactiveColor: FeatureColors.indicatorInactiveColorDefault,
       theme: AppTheme.exoTheme(
-        buttonColor: AppColors.buttonColorDefault,
+        buttonColor: FeatureColors.buttonColorDefault,
       ),
       pages: [
         ExoOnboardingPage(
@@ -37,6 +37,11 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
           title: 'Title3'.tr,
           description: 'Description3'.tr,
           image: const AssetImage('assets/img_default/intro/intro3.png'),
+        ),
+        ExoOnboardingPage(
+          title: 'Title4'.tr,
+          description: 'Description4'.tr,
+          image: const AssetImage('assets/img_default/intro/intro4.png'),
         ),
       ],
       nextText: 'NEXT'.tr,

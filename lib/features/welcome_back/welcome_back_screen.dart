@@ -1,5 +1,5 @@
-import 'package:app_default/app/config/app_colors.dart';
 import 'package:app_default/app/config/app_constants.dart';
+import 'package:app_default/app/config/feature_colors.dart';
 import 'package:exo_ads/exo_ads.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -19,17 +19,17 @@ class WelcomeBackScreen {
       width: 335,
       height: 335,
     );
-    ExoAds.instance.welcomeBackBackgroundColor = AppColors.backgroundColorDefault;
+    ExoAds.instance.welcomeBackBackgroundColor = FeatureColors.backgroundColorDefault;
     ExoAds.instance.welcomeBackAppName = () => AppConstants.appName;
-    ExoAds.instance.welcomeBackAppNameColor = AppColors.buttonColorDefault;
+    ExoAds.instance.welcomeBackAppNameColor = FeatureColors.buttonColorDefault;
     ExoAds.instance.welcomeBackTitle = () => 'Welcome back'.tr;
-    ExoAds.instance.welcomeBackTitleColor = AppColors.textColorDefault;
+    ExoAds.instance.welcomeBackTitleColor = FeatureColors.textColorDefault;
     ExoAds.instance.welcomeBackText = () => 'We\'re glad to have you here again. Let\'s pick up \nwhere you left off and continue your journey!'.tr;
-    ExoAds.instance.welcomeBackTextColor = AppColors.secondaryTextColorDefault;
+    ExoAds.instance.welcomeBackTextColor = FeatureColors.secondaryTextColorDefault;
     
     ExoAds.instance.welcomeBackNextButtonText = () => 'Continue'.tr;
-    ExoAds.instance.welcomeBackButtonColor = AppColors.backgroundColorDefault;
-    ExoAds.instance.welcomeBackButtonTextColor = AppColors.buttonColorDefault;
+    ExoAds.instance.welcomeBackButtonColor = FeatureColors.backgroundColorDefault;
+    ExoAds.instance.welcomeBackButtonTextColor = FeatureColors.buttonColorDefault;
     ExoAds.instance.welcomeBackButtonMargin =
         const EdgeInsets.symmetric(horizontal: 48);
     ExoAds.instance.welcomeBackButtonPadding =

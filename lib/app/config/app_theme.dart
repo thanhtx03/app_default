@@ -1,6 +1,6 @@
 import 'package:exo_ads/exo_ads.dart';
 import 'package:flutter/material.dart';
-import 'package:app_default/app/config/app_colors.dart';
+import 'package:app_default/app/config/feature_colors.dart';
 
 /// Theme builder for s_startup screens
 class AppTheme {
@@ -17,14 +17,14 @@ class AppTheme {
   }) 
   {
     return ExoScreenTheme(
-      primaryColor: primaryColor ?? AppColors.primaryDefault,
-      buttonColor: buttonColor ?? AppColors.primaryDefault,
-      backgroundColor: backgroundColor ?? AppColors.backgroundColorDefault,
-      textColor: textColor ?? AppColors.textColorDefault,
-      secondaryTextColor: secondaryTextColor ?? AppColors.secondaryTextColorDefault,
-      buttonTextColor: buttonTextColor ?? AppColors.buttonTextColorDefault,
-      adBackgroundColor: AppColors.backgroundAdsDefault,
-      trackColor: AppColors.trackDefault,
+      primaryColor: primaryColor ?? FeatureColors.primaryDefault,
+      buttonColor: buttonColor ?? FeatureColors.primaryDefault,
+      backgroundColor: backgroundColor ?? FeatureColors.backgroundColorDefault,
+      textColor: textColor ?? FeatureColors.textColorDefault,
+      secondaryTextColor: secondaryTextColor ?? FeatureColors.secondaryTextColorDefault,
+      buttonTextColor: buttonTextColor ?? FeatureColors.buttonTextColorDefault,
+      adBackgroundColor: FeatureColors.backgroundAdsDefault,
+      trackColor: FeatureColors.trackDefault,
     );
   }
 }
