@@ -1,3 +1,4 @@
+import 'package:app_default/app/config/ads_config.dart';
 import 'package:app_default/app/config/app_colors.dart';
 import 'package:app_default/app/services/ads_logger.dart';
 import 'package:app_default/features/no_internet/no_internet_screen.dart';
@@ -18,6 +19,16 @@ class AdsService {
   bool _initialized = false;
     /// Lắng nghe các sự kiện của ExoAds (ủy quyền sang AdsLogger)
   void listenToAdEvents() => AdsLogger.instance.listenToAdEvents();
+
+  /// Áp dụng trạng thái bật/tắt ads
+  void _applyAdsState() {
+    if (AdsConfig.isAdsDisabled) {
+      ExoAds.instance.enableAds(false);
+      AdsLogger.instance.logToLogcat(
+        '🚫 [AdsService] ADS ARE DISABLED: Công tắc tắt ads đang BẬT. Tất cả quảng cáo (Splash, Native, Interstitial, Banner) đã bị tắt.',
+      );
+    }
+  }
 
   /// Initialize ExoAds, fetch remote config, and register ads.
   Future<void> initialize() async {
@@ -42,6 +53,8 @@ class AdsService {
       debugPrint('[AdsService] RemoteConfig setConfigSettings error: $e');
     }
 
+    final isAdsDisabled = AdsConfig.isAdsDisabled;
+
     // Khởi tạo ExoAds và chờ hoàn tất để đảm bảo SharedPreferences session count được tăng chính xác
     final isProd = appFlavor == 'prod';
     await ExoAds.instance.initialize(
@@ -50,6 +63,12 @@ class AdsService {
       adjustToken: isProd ? '4x514zi69lhc' : '',
       adjustEventKey: isProd ? 'nbev2g' : '',
       isDevMode: !isProd,
+      adsEnabled: !isAdsDisabled,
+      onReconnected: () {
+        if (AdsConfig.isAdsDisabled) {
+          ExoAds.instance.enableAds(false);
+        }
+      },
     );
 
     try {
@@ -69,7 +88,9 @@ class AdsService {
       debugPrint('[AdsService] registerAdsFromRemoteConfig error: $e');
     }
 
+    _applyAdsState();
+
     _initialized = true;
-    debugPrint('[AdsService] ExoAds initialized.');
+    debugPrint('[AdsService] ExoAds initialized. adsEnabled: ${!isAdsDisabled}');
   }
 }

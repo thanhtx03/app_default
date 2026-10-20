@@ -13,6 +13,18 @@
       "program": "lib/main.dart"
     },
     {
+      "name": "dev Debug (No Ads)",
+      "request": "launch",
+      "type": "dart",
+      "flutterMode": "debug",
+      "args": [
+        "--flavor",
+        "dev",
+        "--dart-define=DISABLE_ADS=true"
+      ],
+      "program": "lib/main.dart"
+    },
+    {
       "name": "dev Release",
       "request": "launch",
       "type": "dart",
