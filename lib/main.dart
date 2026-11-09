@@ -1,3 +1,5 @@
+import 'package:app_default/app/bindings/initial_binding.dart';
+import 'package:app_default/app/services/ads_service.dart';
 import 'package:exo_ads/exo_ads.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -20,6 +22,8 @@ void main() async {
         DeviceOrientation.portraitUp,
       ]);
       AdsLogger.setupLogging();
+      await InitialBinding().initializeServices();
+      await AdsService.instance.initialize();
 
       runApp(const MyApp());
     },

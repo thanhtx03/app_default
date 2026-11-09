@@ -17,7 +17,7 @@ class _LanguageScreenState extends State<LanguageScreen> {
     return ExoLanguageView(
       title: 'Language'.tr,
       theme: AppTheme.exoTheme(),
-      initialSelectedCode: const Locale('en'),
+      initialSelectedCode: null,
       languages: exoDefaultLanguageOptions
           .where((option) => option.locale.languageCode != 'vi')
           .toList(),
